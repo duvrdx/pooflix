@@ -1,0 +1,62 @@
+@startuml POOFlix
+    ' Modelagem baseada no enunciado.
+    class Serie {
+        private int id;
+        private String titulo;
+        private int idade;
+        public Serie(int id,String titulo,int idade);
+        public int getid();
+        public String gettitulo();
+        public int getidade();
+    }
+
+    enum Categoria <<Enumeration>>{
+        COMEDIA
+        ACAO
+        AVENTURA
+        DRAMA    
+        VIOLENCIA
+        SEXO
+        LINGUAGEM
+    }
+
+    class Temporada {
+        private int id;
+        private Date dataInicio;
+        public Temporada(int id, Date inicio);
+        public int getid();
+        public Date getinicio();
+    }
+
+    class Episodio {
+        private int id;
+        private String titulo;
+        private String resumo;
+        public Episodio(int id,String titulo);
+        public int getid();
+        public String gettitulo();
+        public String getresumo();
+        public void setresumo(String res)
+    }
+
+    class Ator {
+        private int id;
+        private String nome;
+        public Ator(int id,String nome);
+        public int getid();
+        public String getnome();
+
+    }
+
+    class Atuacao {
+        public Atuacao(int id_ator,int id_epis,String person);
+        private String personagem;
+        public String getpersonagem();
+    }
+
+    Serie "1" *-- "*" Temporada
+    Serie "1..*" -- "0..*" Categoria
+    Temporada "1" *-- "*" Episodio
+    Ator "1..*" -- "1..*" Episodio
+    (Ator, Episodio) .. Atuacao
+@enduml
