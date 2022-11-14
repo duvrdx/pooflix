@@ -6,8 +6,8 @@ public class CDUcadastrarEpis extends CDU {
         formEpisodio.exibe();
     }
 
-    public CDUcadastrarEpis(FormEpisodio formEpisodio){
-        this.formEpisodio = formEpisodio;
+    public CDUcadastrarEpis(FormEpisodio telaEpisodio){
+        this.formEpisodio = telaEpisodio;
         this.formEpisodio.setcdu(this);
     }
 
