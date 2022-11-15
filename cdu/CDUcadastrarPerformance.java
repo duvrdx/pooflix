@@ -1,3 +1,9 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
 public class CDUcadastrarPerformance extends CDU {
     private Performance performance = null;
     private FormPerformance formPerformance;
@@ -12,14 +18,24 @@ public class CDUcadastrarPerformance extends CDU {
     }
 
     public void salvarPerformance() {
-        String id = formPerformance.getid();
-        String idep = formPerformance.getidep();
-        String idp = formPerformance.getidpersonagem();
-        String idator = formPerformance.getidator();
+        // Conexão com o banco de dados
+        Connection conn = new ConexaoDAO().conectaBD();
+        PreparedStatement pstm = null; 
+        String commandSQL = "insert into Performance (idPerformance, idEpisodio, idPersonagem, idAtor) values (?, ?, ?, ?)";
 
-        performance = new Performance(Integer.parseInt(id));  
+        try {
+            pstm = conn.prepareStatement(commandSQL);
+            pstm.setInt(1, Integer.parseInt(formPerformance.getid()));
+            pstm.setString(2, formPerformance.getidep());
+            pstm.setInt(3, Integer.parseInt(formPerformance.getidpersonagem()));
+            pstm.setInt(4, Integer.parseInt(formPerformance.getidator()));
+            pstm.execute();
+            pstm.close();
 
-        //bd.salvarEpisodio(episodio);
-        System.out.println("Salvando no banco de dados.." + performance);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        System.out.println("Salvando no banco de dados...");
     }
 }

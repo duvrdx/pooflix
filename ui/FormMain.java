@@ -18,12 +18,14 @@ public class FormMain extends Form {
             System.out.println("1. Cadastrar Série\n");
             System.out.println("2. Cadastrar Episódio\n");
             System.out.println("3. Cadastrar Ator\n");
-            System.out.println("5. Sair\n");
+            System.out.println("4. Cadastrar Personagem\n");
+            System.out.println("5. Cadastrar Performance\n");
+            System.out.println("6. Sair\n");
 
 
             opcao = c.readLine("Digite a opção desejada: ");
 
-            termina = opcao.equals("5");
+            termina = opcao.equals("6");
 
             if(!termina)
                 cdumain.processaOpcao(opcao);

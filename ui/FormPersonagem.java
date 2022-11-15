@@ -1,13 +1,12 @@
 import java.io.Console;
 
-public class FormAtor extends Form{
+public class FormPersonagem extends Form{
     private String id;
 	private String nome;
-    private String nacionalidade;
-    private CDUcadastrarAtor cduca;
+    private CDUcadastrarPersonagem cducp;
 
-    public void setcdu(CDUcadastrarAtor cdUcadastrarAtor){
-        this.cduca = cdUcadastrarAtor;
+    public void setcdu(CDUcadastrarPersonagem cdUcadastrarPersonagem){
+        this.cducp = cdUcadastrarPersonagem;
     }
 
     public void exibe(){
@@ -15,23 +14,21 @@ public class FormAtor extends Form{
         boolean termina = false;
         String continuar;     
 
-        System.out.println("CADASTRANDO ATOR\n");
+        System.out.println("CADASTRANDO PERSONAGEM\n");
 
         while(!termina){
             
             id = c.readLine("ID:");
             nome = c.readLine("NOME: ");
-            nacionalidade = c.readLine("NACIONALIDADE: ");
 
             continuar = c.readLine("Deseja continuar?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
                 
-            cduca.salvarAtor();
+            cducp.salvarAtor();
             
         }
     } 
 
     public String getid() { return id;};
     public String getnome() { return nome;}
-    public String getnacionalidade() { return nacionalidade;}
 } // class

@@ -1,3 +1,9 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
 public class CDUcadastrarSerie  extends CDU {
     private Serie serie;
     private FormSerie formSerie;
@@ -12,13 +18,23 @@ public class CDUcadastrarSerie  extends CDU {
     }
 
     public void salvarSerie() {
-        String id = formSerie.getid();
-        String titulo = formSerie.gettitulo();
-        int idade = Integer.valueOf(formSerie.getidademin());
+        // Conexão com o banco de dados
+        Connection conn = new ConexaoDAO().conectaBD();
+        PreparedStatement pstm = null; 
+        String commandSQL = "insert into Serie (idSerie, titulo, classificacao_etaria) values (?, ?, ?)";
 
-        serie = new Serie(id,titulo,idade);
+        try {
+            pstm = conn.prepareStatement(commandSQL);
+            pstm.setString(1, formSerie.getid());
+            pstm.setString(2, formSerie.gettitulo());
+            pstm.setInt(3, Integer.parseInt(formSerie.getidademin()));
+            pstm.execute();
+            pstm.close();
 
-        //bd.salvarSerie(serie);
-        System.out.println("Salvando no banco de dados.." + serie);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        System.out.println("Salvando no banco de dados...");
     }
 }

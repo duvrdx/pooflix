@@ -1,3 +1,9 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
 public class CDUcadastrarEpis extends CDU {
     private Episodio episodio = null;
     private FormEpisodio formEpisodio;
@@ -18,15 +24,26 @@ public class CDUcadastrarEpis extends CDU {
     }
 
     public void salvarEpisodio() {
-        String id = formEpisodio.getid();
-        String idserie = formEpisodio.getidserie();
-        String temporada = formEpisodio.gettemporada();
-        String titulo = formEpisodio.gettitulo();
-        String resumo = formEpisodio.getresumo();
+        // Conexão com o banco de dados
+        Connection conn = new ConexaoDAO().conectaBD();
+        PreparedStatement pstm = null; 
+        String commandSQL = "insert into Personagem (idEpisodio, idSerie, titulo, temporada, resumo) values (?, ?, ?, ?, ?)";
 
-        episodio = new Episodio(id,titulo,temporada,resumo);   
+        try {
+            pstm = conn.prepareStatement(commandSQL);
+            pstm.setString(1, formEpisodio.getid());
+            pstm.setString(2, formEpisodio.getidserie());
+            pstm.setString(3, formEpisodio.gettitulo());
+            pstm.setInt(4, Integer.parseInt(formEpisodio.gettemporada()));
+            pstm.setString(5, formEpisodio.getresumo());
 
-        //bd.salvarEpisodio(episodio);
-        System.out.println("Salvando no banco de dados.." + episodio);
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        System.out.println("Salvando no banco de dados...");
     }
 }
