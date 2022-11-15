@@ -9,6 +9,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/home/duvrdx/Documentos/Java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar"
+        "/home/duvrdx/Documentos/Java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
+        "dependencias/java-dotenv-5.2.2.jar"
     ]
 }
