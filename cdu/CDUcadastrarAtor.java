@@ -4,30 +4,30 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-public class CDUcadastrarSerie  extends CDU {
-    private Serie serie;
-    private FormSerie formSerie;
-
-    public CDUcadastrarSerie(FormSerie formSerie){
-        this.formSerie = formSerie;
-        this.formSerie.setcdu(this);
-    }
+public class CDUcadastrarAtor extends CDU {
+    private Ator ator = null;
+    private FormAtor formAtor;
 
     public void exec() {
-        formSerie.exibe();
+        formAtor.exibe();
     }
 
-    public void salvarSerie() {
+    public CDUcadastrarAtor(FormAtor formAtor){
+        this.formAtor = formAtor;
+        this.formAtor.setcdu(this);
+    }
+
+    public void salvarAtor() {
         // Conexão com o banco de dados
         Connection conn = new ConexaoDAO().conectaBD();
         PreparedStatement pstm = null; 
-        String commandSQL = "insert into Serie (idSerie, titulo, classificacao_etaria) values (?, ?, ?)";
+        String commandSQL = "insert into Ator (idAtor, nome, nacionalidade) values (?, ?, ?)";
 
         try {
             pstm = conn.prepareStatement(commandSQL);
-            pstm.setString(1, formSerie.getid());
-            pstm.setString(2, formSerie.gettitulo());
-            pstm.setInt(3, Integer.parseInt(formSerie.getidademin()));
+            pstm.setInt(1, Integer.parseInt(formAtor.getid()));
+            pstm.setString(2, formAtor.getnome());
+            pstm.setString(3, formAtor.getnacionalidade());
             pstm.execute();
             pstm.close();
 

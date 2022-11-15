@@ -58,7 +58,7 @@ public class FormEpisodio extends Form{
                         termina = false;                    
                     }
                     else
-                       termina = true;
+                        termina = true;
             } // if(episodio)
         } // while ..
     } // exibe()

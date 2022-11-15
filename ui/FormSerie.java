@@ -25,9 +25,8 @@ public class FormSerie extends Form {
             continuar = c.readLine("Deseja continuar?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
 
-            if(!termina){
-                cducs.salvarSerie();
-            }
+            
+            cducs.salvarSerie();
         }
     }
 
