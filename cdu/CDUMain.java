@@ -17,6 +17,7 @@ public class CDUMain  extends CDU {
             case "3": execCadAtor(); break;
             case "4": execCadPersonagem(); break;
             case "5": execCadPerformance(); break;
+            case "6": execCadDeletar(); break;
         }
     }
 
@@ -48,5 +49,11 @@ public class CDUMain  extends CDU {
         FormPerformance telaPerformance = new FormPerformance();
         CDUcadastrarPerformance casoUsoPerformance = new CDUcadastrarPerformance(telaPerformance);
         casoUsoPerformance.exec();        
+    }
+
+    public void execCadDeletar(){
+        FormDeletarPorID telaDeletarPorID = new FormDeletarPorID();
+        CDUdeletarPorID casoUsoDeletarPorID = new CDUdeletarPorID (telaDeletarPorID);
+        casoUsoDeletarPorID.exec();        
     }
 }
