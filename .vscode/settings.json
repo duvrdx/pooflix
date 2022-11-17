@@ -4,7 +4,8 @@
         "cdu",
         "dominio",
         "persistencia",
-        "ui"
+        "ui",
+        "env"
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [

@@ -9,7 +9,7 @@ public class ConexaoDAO {
         Connection conn = null;
 
         try {
-            String url = "jdbc:mysql://localhost:3306/database?user=&password=";
+            String url = String.format("jdbc:mysql://localhost:3306/%s?user=%s&password=%s", Env.database,  Env.user, Env.password);
             conn = DriverManager.getConnection(url);
             // System.out.println("Deu Certo");
         } catch (SQLException e) {
