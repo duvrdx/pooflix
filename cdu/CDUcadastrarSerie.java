@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
@@ -17,11 +18,21 @@ public class CDUcadastrarSerie  extends CDU {
         formSerie.exibe();
     }
 
-    public void salvarSerie() {
+    public void salvarSerie() throws SQLException {
         // Conexão com o banco de dados
         Connection conn = new ConexaoDAO().conectaBD();
         PreparedStatement pstm = null; 
+        PreparedStatement pstmVerify = null; 
         String commandSQL = "insert into Serie (idSerie, titulo, classificacao_etaria) values (?, ?, ?)";
+        String selectquerySerie = "select * from Serie where titulo = ?";
+
+        pstmVerify = conn.prepareStatement(selectquerySerie);
+        pstmVerify.setString(1, formSerie.gettitulo());
+        ResultSet rs = pstmVerify.executeQuery();
+
+        rs.first();
+    
+        if (rs.getString("titulo") == formSerie.gettitulo()) System.out.println("Serie já cadastrada");
 
         try {
             pstm = conn.prepareStatement(commandSQL);

@@ -11,6 +11,8 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "/home/duvrdx/Documentos/Java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
-        "dependencias/java-dotenv-5.2.2.jar"
+        "dependencias/java-dotenv-5.2.2.jar",
+        "/home/duvrdx/Documents/Docs PopOS/Java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
+        "/home/duvrdx/Documents/.javadepend/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"
     ]
 }
