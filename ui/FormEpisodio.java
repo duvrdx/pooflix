@@ -12,15 +12,16 @@ public class FormEpisodio extends Form{
         this.cduce = cduce;
     }
 
-    public void exibe(){
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;     
         boolean leserie = true;
         boolean leepisodio = false;  
         String nomeserie = null;
-
-        System.out.println("CADASTRANDO EPISODIO\n");
+            
+        if(!isUpdate) System.out.println("CADASTRANDO EPISODIO\n");
+        else System.out.println("ATUALIZANDO EPISODIO");
 
         while(!termina){
             if(leserie){

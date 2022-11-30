@@ -1,12 +1,12 @@
 import java.io.Console;
 
-public class FormDeletarPorID extends Form{
+public class FormAtualizarPorID extends Form{
     private String id;
     private String tipo;
-    private CDUdeletarPorID cducd;
+    private CDUatualizarPorID cduaid;
 
-    public void setcdu(CDUdeletarPorID cdUdeletarPorID){
-        this.cducd = cdUdeletarPorID;
+    public void setcdu(CDUatualizarPorID cdUatualizarPorID){
+        this.cduaid = cdUatualizarPorID;
     }
 
     public void exibe(boolean isUpdate){
@@ -19,11 +19,11 @@ public class FormDeletarPorID extends Form{
         while(!termina){
             tipo = c.readLine("TIPO:\n(A)tor | (E)pisodio | (S)erie | (P)ersonagem | (Perf)ormance");           
             id = c.readLine("ID:");
+            
+            cduaid.deletarPorID();
 
             continuar = c.readLine("Deseja continuar?(s/n): ");
-            termina = continuar.toLowerCase().equals("n");
-                
-            cducd.deletarPorID();
+            termina = continuar.toLowerCase().equals("n"); 
             
         }
     } 

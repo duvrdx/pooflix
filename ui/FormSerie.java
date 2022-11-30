@@ -1,4 +1,5 @@
 import java.io.Console;
+import java.sql.SQLException;
 
 public class FormSerie extends Form {
     private String id;
@@ -10,12 +11,13 @@ public class FormSerie extends Form {
         this.cducs = cducs;
     }
 
-    public void exibe() {
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;        
 
-        System.out.println("CADASTRANDO SÉRIE\n");
+        if(!isUpdate) System.out.println("CADASTRANDO SÉRIE\n");
+        else System.out.println("ATUALIZANDO SÉRIE");
 
         while(!termina){
             id = c.readLine("ID: ");
@@ -26,7 +28,11 @@ public class FormSerie extends Form {
             termina = continuar.toLowerCase().equals("n");
 
             
-            cducs.salvarSerie();
+            try {
+                cducs.salvarSerie();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

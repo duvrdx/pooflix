@@ -10,7 +10,7 @@ public class FormAtor extends Form{
         this.cduca = cdUcadastrarAtor;
     }
 
-    public void exibe(){
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;     

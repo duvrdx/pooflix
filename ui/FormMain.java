@@ -7,7 +7,7 @@ public class FormMain extends Form {
         this.cdumain = cdumain;
     }
 
-    public void exibe() {
+    public void exibe(boolean isUpdate) {
         String opcao;
         Console c = System.console();
         boolean termina = false;

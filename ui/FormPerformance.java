@@ -12,7 +12,7 @@ public class FormPerformance extends Form{
         this.cducp = cdUcadastrarPerformance;
     }
 
-    public void exibe(){
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;     
