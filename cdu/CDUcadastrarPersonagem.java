@@ -9,7 +9,7 @@ public class CDUcadastrarPersonagem extends CDU {
     private FormPersonagem formPersonagem;
 
     public void exec() {
-        formPersonagem.exibe();
+        formPersonagem.exibe(false);
     }
 
     public CDUcadastrarPersonagem(FormPersonagem formPersonagem){
@@ -21,7 +21,7 @@ public class CDUcadastrarPersonagem extends CDU {
         // Conexão com o banco de dados
         Connection conn = new ConexaoDAO().conectaBD();
         PreparedStatement pstm = null; 
-        String commandSQL = "insert into Personagem (idPersonagem, nome) values (?, ?)";
+        String commandSQL = "insert into Personagem (id, nome) values (?, ?)";
 
         try {
             pstm = conn.prepareStatement(commandSQL);

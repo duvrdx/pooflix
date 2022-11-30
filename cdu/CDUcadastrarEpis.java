@@ -9,7 +9,7 @@ public class CDUcadastrarEpis extends CDU {
     private FormEpisodio formEpisodio;
 
     public void exec() {
-        formEpisodio.exibe();
+        formEpisodio.exibe(false);
     }
 
     public CDUcadastrarEpis(FormEpisodio telaEpisodio){
@@ -27,7 +27,7 @@ public class CDUcadastrarEpis extends CDU {
         // Conexão com o banco de dados
         Connection conn = new ConexaoDAO().conectaBD();
         PreparedStatement pstm = null; 
-        String commandSQL = "insert into Personagem (idEpisodio, idSerie, titulo, temporada, resumo) values (?, ?, ?, ?, ?)";
+        String commandSQL = "insert into Personagem (id, idSerie, titulo, temporada, resumo) values (?, ?, ?, ?, ?)";
 
         try {
             pstm = conn.prepareStatement(commandSQL);

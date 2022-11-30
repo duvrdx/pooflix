@@ -7,7 +7,7 @@ public class FormMain extends Form {
         this.cdumain = cdumain;
     }
 
-    public void exibe() {
+    public void exibe(boolean isUpdate) {
         String opcao;
         Console c = System.console();
         boolean termina = false;
@@ -21,6 +21,7 @@ public class FormMain extends Form {
             System.out.println("4. Cadastrar Personagem\n");
             System.out.println("5. Cadastrar Performance\n");
             System.out.println("6. Deletar por ID\n");
+            System.out.println("7. Atualizar por ID\n");
             System.out.println("10. Sair\n");
 
 

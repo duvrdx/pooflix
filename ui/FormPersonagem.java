@@ -9,19 +9,20 @@ public class FormPersonagem extends Form{
         this.cducp = cdUcadastrarPersonagem;
     }
 
-    public void exibe(){
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;     
 
-        System.out.println("CADASTRANDO PERSONAGEM\n");
+        if(!isUpdate) System.out.println("CADASTRANDO PERSONAGEM\n");
+        else System.out.println("ATUALIZANDO PERSONAGEM");
 
         while(!termina){
             
             id = c.readLine("ID:");
             nome = c.readLine("NOME: ");
 
-            continuar = c.readLine("Deseja continuar?(s/n): ");
+            continuar = c.readLine("Deseja continuar cadastrando personagens?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
                 
             cducp.salvarAtor();

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class CDUdeletarPorID extends CDU {
     private FormDeletarPorID formDeletarPorID;
     public void exec() {
-        formDeletarPorID.exibe();
+        formDeletarPorID.exibe(false);
     }
 
     public CDUdeletarPorID(FormDeletarPorID formDeletarPorID){
@@ -40,7 +40,7 @@ public class CDUdeletarPorID extends CDU {
 
         if(getTipo(formDeletarPorID.gettipo()) != null){
             String tipo = getTipo(formDeletarPorID.gettipo());
-            String commandSQL = String.format("delete from %s where id%s = ?", tipo ,tipo);
+            String commandSQL = String.format("delete from %s where id = ?", tipo);
 
             try {
                 pstm = conn.prepareStatement(commandSQL);

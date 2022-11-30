@@ -9,7 +9,7 @@ public class FormDeletarPorID extends Form{
         this.cducd = cdUdeletarPorID;
     }
 
-    public void exibe(){
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;     

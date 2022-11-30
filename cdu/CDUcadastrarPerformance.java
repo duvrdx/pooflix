@@ -9,7 +9,7 @@ public class CDUcadastrarPerformance extends CDU {
     private FormPerformance formPerformance;
 
     public void exec() {
-        formPerformance.exibe();
+        formPerformance.exibe(false);
     }
 
     public CDUcadastrarPerformance(FormPerformance formPerformance){
@@ -21,7 +21,7 @@ public class CDUcadastrarPerformance extends CDU {
         // Conexão com o banco de dados
         Connection conn = new ConexaoDAO().conectaBD();
         PreparedStatement pstm = null; 
-        String commandSQL = "insert into Performance (idPerformance, idEpisodio, idPersonagem, idAtor) values (?, ?, ?, ?)";
+        String commandSQL = "insert into Performance (id, idEpisodio, idPersonagem, idAtor) values (?, ?, ?, ?)";
 
         try {
             pstm = conn.prepareStatement(commandSQL);

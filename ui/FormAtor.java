@@ -10,12 +10,13 @@ public class FormAtor extends Form{
         this.cduca = cdUcadastrarAtor;
     }
 
-    public void exibe(){
+    public void exibe(boolean isUpdate){
         Console c = System.console();
         boolean termina = false;
         String continuar;     
 
-        System.out.println("CADASTRANDO ATOR\n");
+        if(!isUpdate) System.out.println("CADASTRANDO ATOR\n");
+        else System.out.println("ATUALIZANDO ATOR");
 
         while(!termina){
             
@@ -23,7 +24,7 @@ public class FormAtor extends Form{
             nome = c.readLine("NOME: ");
             nacionalidade = c.readLine("NACIONALIDADE: ");
 
-            continuar = c.readLine("Deseja continuar?(s/n): ");
+            continuar = c.readLine("Deseja continuar cadastrando atores?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
                 
             cduca.salvarAtor();
