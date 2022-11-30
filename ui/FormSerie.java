@@ -24,7 +24,7 @@ public class FormSerie extends Form {
             titulo = c.readLine("Titulo: ");
             idademin = c.readLine("Idade mínima: ");
 
-            continuar = c.readLine("Deseja continuar?(s/n): ");
+            continuar = c.readLine("Deseja continuar cadastrando séries?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
 
             

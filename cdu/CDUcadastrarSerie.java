@@ -15,7 +15,7 @@ public class CDUcadastrarSerie  extends CDU {
     }
 
     public void exec() {
-        formSerie.exibe();
+        formSerie.exibe(false);
     }
 
     public void salvarSerie() throws SQLException {
@@ -23,7 +23,7 @@ public class CDUcadastrarSerie  extends CDU {
         Connection conn = new ConexaoDAO().conectaBD();
         PreparedStatement pstm = null; 
         PreparedStatement pstmVerify = null; 
-        String commandSQL = "insert into Serie (idSerie, titulo, classificacao_etaria) values (?, ?, ?)";
+        String commandSQL = "insert into Serie (id, titulo, classificacao_etaria) values (?, ?, ?)";
         String selectquerySerie = "select * from Serie where titulo = ?";
 
         pstmVerify = conn.prepareStatement(selectquerySerie);

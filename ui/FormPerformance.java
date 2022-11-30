@@ -17,7 +17,8 @@ public class FormPerformance extends Form{
         boolean termina = false;
         String continuar;     
 
-        System.out.println("CADASTRANDO PERFORMANCE\n");
+        if(!isUpdate) System.out.println("CADASTRANDO PERFORMANCE\n");
+        else System.out.println("ATUALIZANDO PERFORMANCE");
 
         while(!termina){
             
@@ -26,7 +27,7 @@ public class FormPerformance extends Form{
             idpersonagem = c.readLine("ID PERSONAGEM:");
             idator = c.readLine("ID ATOR:");
 
-            continuar = c.readLine("Deseja continuar?(s/n): ");
+            continuar = c.readLine("Deseja continuar cadastrando performances?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
                 
             cducp.salvarPerformance();

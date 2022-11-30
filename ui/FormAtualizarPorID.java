@@ -17,12 +17,12 @@ public class FormAtualizarPorID extends Form{
         System.out.println("DELETANDO POR ID\n");
 
         while(!termina){
-            tipo = c.readLine("TIPO:\n(A)tor | (E)pisodio | (S)erie | (P)ersonagem | (Perf)ormance");           
+            tipo = c.readLine("TIPO:\n(A)tor | (E)pisodio | (S)erie | (P)ersonagem | (Perf)ormance");            
             id = c.readLine("ID:");
             
-            cduaid.deletarPorID();
+            cduaid.atualizarPorID();
 
-            continuar = c.readLine("Deseja continuar?(s/n): ");
+            continuar = c.readLine("Deseja continuar atualizando?(s/n): ");
             termina = continuar.toLowerCase().equals("n"); 
             
         }

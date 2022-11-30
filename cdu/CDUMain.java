@@ -7,7 +7,7 @@ public class CDUMain  extends CDU {
     }  
     
     public void exec() {
-        formMain.exibe();
+        formMain.exibe(false);
     }
 
     public void processaOpcao(String opcao){
@@ -18,6 +18,7 @@ public class CDUMain  extends CDU {
             case "4": execCadPersonagem(); break;
             case "5": execCadPerformance(); break;
             case "6": execCadDeletar(); break;
+            case "7": execCadAtualizar(); break;
         }
     }
 
@@ -25,6 +26,12 @@ public class CDUMain  extends CDU {
         FormSerie telaSerie = new FormSerie();
         CDUcadastrarSerie casoUsoSerie = new CDUcadastrarSerie(telaSerie);
         casoUsoSerie.exec();
+    }
+
+    public void execCadAtualizar(){
+        FormAtualizarPorID telaAtualizarPorID = new FormAtualizarPorID();
+        CDUatualizarPorID casoUsoAtualizar = new CDUatualizarPorID(telaAtualizarPorID);
+        casoUsoAtualizar.exec();
     }
 
     public void execCadEpisodio(){
